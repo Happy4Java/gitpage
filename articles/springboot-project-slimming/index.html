@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="前言如果项目依赖太多，网络带宽太小，发包要本地构建上传等等，这些问题非常影响发版效率（是的，某司网络带宽太小，上传一个300M的包要20分钟，谁受得了）。Java项目虽然依赖会很多，但是当版本迭代稳定之后，依赖基本就不会再变动了，如果可以把这些不变的依赖提前都放到服务器上，打包的时候忽略这些依赖，那么打出来的Jar包就会小很多，直接提升发版效率。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot项目瘦身实战">
-<meta property="og:url" content="https://happyjava.cn/articles/springboot-project-slimming/index.html">
+<meta property="og:url" content="http://blog.happyjava.cn/articles/springboot-project-slimming/index.html">
 <meta property="og:site_name" content="Happyjava&#39;s blog site">
 <meta property="og:description" content="前言如果项目依赖太多，网络带宽太小，发包要本地构建上传等等，这些问题非常影响发版效率（是的，某司网络带宽太小，上传一个300M的包要20分钟，谁受得了）。Java项目虽然依赖会很多，但是当版本迭代稳定之后，依赖基本就不会再变动了，如果可以把这些不变的依赖提前都放到服务器上，打包的时候忽略这些依赖，那么打出来的Jar包就会小很多，直接提升发版效率。">
 <meta property="og:locale" content="zh_CN">
@@ -44,7 +44,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/7768df1cf36e4ae79c6979d3ed4c38d5/7768df1cf36e4ae79c6979d3ed4c38d5.github.io/myfiles/20210221111638.png">
 
-<link rel="canonical" href="https://happyjava.cn/articles/springboot-project-slimming/">
+<link rel="canonical" href="http://blog.happyjava.cn/articles/springboot-project-slimming/">
 
 
 <script id="page-configurations">
@@ -178,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/springboot-project-slimming/">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/springboot-project-slimming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -397,7 +397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

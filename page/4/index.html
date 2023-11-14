@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Happyjava&#39;s blog site，分享编程知识，顺便发发牢骚">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Happyjava&#39;s blog site">
-<meta property="og:url" content="https://happyjava.cn/page/4/index.html">
+<meta property="og:url" content="http://blog.happyjava.cn/page/4/index.html">
 <meta property="og:site_name" content="Happyjava&#39;s blog site">
 <meta property="og:description" content="Happyjava&#39;s blog site，分享编程知识，顺便发发牢骚">
 <meta property="og:locale" content="zh_CN">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="Java,Golang,Python,编程">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://happyjava.cn/page/4/">
+<link rel="canonical" href="http://blog.happyjava.cn/page/4/">
 
 
 <script id="page-configurations">
@@ -164,7 +164,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/129.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/build_hexo_github_blog_site/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="哈皮">
+      <meta itemprop="description" content="Happyjava's blog site，分享编程知识，顺便发发牢骚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Happyjava's blog site">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/articles/build_hexo_github_blog_site/" class="post-title-link" itemprop="url">手把手教你使用Hexo➕GitHub搭建自己的个人博客网站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-23 14:33:38" itemprop="dateCreated datePublished" datetime="2019-11-23T14:33:38+08:00">2019-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-04 20:11:28" itemprop="dateModified" datetime="2023-03-04T20:11:28+08:00">2023-03-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装nodejs环境"><a href="#安装nodejs环境" class="headerlink" title="安装nodejs环境"></a>安装nodejs环境</h2><p>这个直接搜索安装即可，安装完成之后，通过如下命令检测环境变量是否安装成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">λ node -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出版本号</span></span><br><span class="line">v12.13.1</span><br></pre></td></tr></table></figure>
+
+<p>正确输入版本号即可。</p>
+<h2 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h2><p>cnpm是淘宝镜像，可以加快依赖的安装速度</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install cnpm -g --registry=https://registry.npm.taobao.org</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出</span></span><br><span class="line">C:\Users\xxxxx\AppData\Roaming\npm\cnpm -&gt; C:\Users\xxxxx\AppData\Roaming\npm\node_modules\cnpm\bin\cnpm</span><br><span class="line">+ cnpm@6.1.0</span><br><span class="line">added 680 packages from 933 contributors in 24.882s</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>Git、GitHub就不多说了</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/articles/build_hexo_github_blog_site/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/129.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -240,7 +332,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/156.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/156.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -314,7 +406,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/138.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/138.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -397,7 +489,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/136.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/136.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -454,7 +546,7 @@
 
       
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前已经写过一篇文章介绍SpringBoot整合Spring Cache，SpringBoot默认使用的是ConcurrentMapCacheManager，在实际项目中，我们需要一个高可用的、分布式的缓存解决方案，使用默认的这种缓存方式，只是在当前进程里缓存了而已。Spring Cache整合Redis来实现缓存，其实也不是一件复杂的事情，下面就开始吧。</p>
-<p>关于Spring Cache的运用，请参考<a href="https://happyjava.cn/articles/134.html">[快学SpringBoot]快速上手好用方便的Spring Cache缓存框架</a></p>
+<p>关于Spring Cache的运用，请参考<a target="_blank" rel="noopener" href="https://happyjava.cn/articles/134.html">[快学SpringBoot]快速上手好用方便的Spring Cache缓存框架</a></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/articles/136.html#more" rel="contents">
@@ -481,7 +573,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/134.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/134.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -564,7 +656,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/126.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/126.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -647,7 +739,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/122.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/122.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -730,7 +822,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/120.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/120.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -814,7 +906,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/116.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/116.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -871,94 +963,11 @@
 
       
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JWT(json web token)的无状态鉴权方式，越来越流行。配合SpringSecurity+SpringBoot，可以实现优雅的鉴权功能。</p>
-<p>关于SpringBoot+ Security的讲解，可以参考我之前的文章：<a href="https://happyjava.cn/articles/98.html">https://happyjava.cn/articles/98.html</a></p>
+<p>关于SpringBoot+ Security的讲解，可以参考我之前的文章：<a target="_blank" rel="noopener" href="https://happyjava.cn/articles/98.html">https://happyjava.cn/articles/98.html</a></p>
 <p>为了减少重复造轮子的工作量，方便大家复制和参考，我把一个完整的SpringBoot+JWT+SpringSecurity+Mybatis-Plus开发的项目，放到本人的github上，方便自己的同时也方便他人。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/articles/116.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/114.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="哈皮">
-      <meta itemprop="description" content="Happyjava's blog site，分享编程知识，顺便发发牢骚">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Happyjava's blog site">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/articles/114.html" class="post-title-link" itemprop="url">Java8新特性——Optional</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-09 23:01:55" itemprop="dateCreated datePublished" datetime="2019-07-09T23:01:55+08:00">2019-07-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-04 20:11:28" itemprop="dateModified" datetime="2023-03-04T20:11:28+08:00">2023-03-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开发中，我们常常需要对一个引用进行判空以防止空指针异常的出现。Java8引入了Optional类，为的就是优雅地处理判空等问题。现在也有很多类库在使用Optional封装返回值，比如Spring Data JPA等。下面，我们就来了解下Optional的常用用法</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/articles/114.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1047,7 +1056,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

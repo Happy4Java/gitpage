@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="前言在前面已经介绍过了SSO单点登录的一些理论知识：登录那些事（一）：用简单的话来讲讲SSO单点登录。今天我们就通过一个demo来实现下这个CAS系统。 准备工作建表123456789CREATE TABLE &#96;users&#96; (  &#96;id&#96; int NOT NULL AUTO_INCREMENT,  &#96;username&#96; varchar(255) COLLATE utf8mb4_general_c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="登录那些事（二）：SpringBoot+MybatisPlus实现CAS单点登录demo（源码下载）">
-<meta property="og:url" content="https://happyjava.cn/articles/login-sso-2.html">
+<meta property="og:url" content="http://blog.happyjava.cn/articles/login-sso-2.html">
 <meta property="og:site_name" content="Happyjava&#39;s blog site">
 <meta property="og:description" content="前言在前面已经介绍过了SSO单点登录的一些理论知识：登录那些事（一）：用简单的话来讲讲SSO单点登录。今天我们就通过一个demo来实现下这个CAS系统。 准备工作建表123456789CREATE TABLE &#96;users&#96; (  &#96;id&#96; int NOT NULL AUTO_INCREMENT,  &#96;username&#96; varchar(255) COLLATE utf8mb4_general_c">
 <meta property="og:locale" content="zh_CN">
@@ -41,7 +41,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://apple-1252736714.cos.ap-nanjing.myqcloud.com/picgo/20201112234816.png">
 
-<link rel="canonical" href="https://happyjava.cn/articles/login-sso-2">
+<link rel="canonical" href="http://blog.happyjava.cn/articles/login-sso-2">
 
 
 <script id="page-configurations">
@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/login-sso-2.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/login-sso-2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -242,7 +242,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前面已经介绍过了SSO单点登录的一些理论知识：<a href="https://happyjava.cn/articles/login-sso-1.html"><strong>登录那些事（一）：用简单的话来讲讲SSO单点登录</strong></a>。今天我们就通过一个demo来实现下这个CAS系统。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前面已经介绍过了SSO单点登录的一些理论知识：<a target="_blank" rel="noopener" href="https://happyjava.cn/articles/login-sso-1.html"><strong>登录那些事（一）：用简单的话来讲讲SSO单点登录</strong></a>。今天我们就通过一个demo来实现下这个CAS系统。</p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h4 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `users` (</span><br><span class="line">  `id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `username` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `password` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB AUTO_INCREMENT<span class="operator">=</span><span class="number">2</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_general_ci;</span><br><span class="line"></span><br><span class="line"># 插入一条默认数据</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `cas`.`users`(`id`, `username`, `password`) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;happyjava&#x27;</span>, <span class="string">&#x27;123456&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <h4 id="搭建cas工程"><a href="#搭建cas工程" class="headerlink" title="搭建cas工程"></a>搭建cas工程</h4><p>通过Spring initial快速创建一个SpringBoot工程，额外依赖如下：Lombok、MySQL、Mybatis、MybatisPlus、freemarker模板引擎。</p>
@@ -403,7 +403,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

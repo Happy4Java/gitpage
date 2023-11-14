@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="前言JWT(json web token)的无状态鉴权方式，越来越流行。配合SpringSecurity+SpringBoot，可以实现优雅的鉴权功能。 关于SpringBoot+ Security的讲解，可以参考我之前的文章：https:&#x2F;&#x2F;happyjava.cn&#x2F;articles&#x2F;98.html 为了减少重复造轮子的工作量，方便大家复制和参考，我把一个完整的SpringBoot+JWT+Sp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot+JWT+SpringSecurity+MybatisPlus实现Restful鉴权脚手架">
-<meta property="og:url" content="https://happyjava.cn/articles/116.html">
+<meta property="og:url" content="http://blog.happyjava.cn/articles/116.html">
 <meta property="og:site_name" content="Happyjava&#39;s blog site">
 <meta property="og:description" content="前言JWT(json web token)的无状态鉴权方式，越来越流行。配合SpringSecurity+SpringBoot，可以实现优雅的鉴权功能。 关于SpringBoot+ Security的讲解，可以参考我之前的文章：https:&#x2F;&#x2F;happyjava.cn&#x2F;articles&#x2F;98.html 为了减少重复造轮子的工作量，方便大家复制和参考，我把一个完整的SpringBoot+JWT+Sp">
 <meta property="og:locale" content="zh_CN">
@@ -43,7 +43,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://apple-1252736714.cos.ap-nanjing.myqcloud.com/picgo/20210118003629.png">
 
-<link rel="canonical" href="https://happyjava.cn/articles/116">
+<link rel="canonical" href="http://blog.happyjava.cn/articles/116">
 
 
 <script id="page-configurations">
@@ -177,7 +177,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/116.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/116.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -245,7 +245,7 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JWT(json web token)的无状态鉴权方式，越来越流行。配合SpringSecurity+SpringBoot，可以实现优雅的鉴权功能。</p>
-<p>关于SpringBoot+ Security的讲解，可以参考我之前的文章：<a href="https://happyjava.cn/articles/98.html">https://happyjava.cn/articles/98.html</a></p>
+<p>关于SpringBoot+ Security的讲解，可以参考我之前的文章：<a target="_blank" rel="noopener" href="https://happyjava.cn/articles/98.html">https://happyjava.cn/articles/98.html</a></p>
 <p>为了减少重复造轮子的工作量，方便大家复制和参考，我把一个完整的SpringBoot+JWT+SpringSecurity+Mybatis-Plus开发的项目，放到本人的github上，方便自己的同时也方便他人。</p>
 <span id="more"></span>
 
@@ -374,7 +374,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="介绍当涉及到企业应用程序时，正确地管理对数据库的并发访问是至关重要的。为此，我们可以使用Java Persistence API提供的乐观锁定机制。它导致在同一时间对同一数据进行多次更新不会相互干扰。为了使用OptimisticLocking，我们需要一个实体（Entity），其中包含一个带有@Version注释的属性。在使用它时，每个读取数据的事务都持有version属性的值。在事务想要进行更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【快学springboot】8.JPA乐观锁OptimisticLocking">
-<meta property="og:url" content="https://happyjava.cn/articles/23.html">
+<meta property="og:url" content="http://blog.happyjava.cn/articles/23.html">
 <meta property="og:site_name" content="Happyjava&#39;s blog site">
 <meta property="og:description" content="介绍当涉及到企业应用程序时，正确地管理对数据库的并发访问是至关重要的。为此，我们可以使用Java Persistence API提供的乐观锁定机制。它导致在同一时间对同一数据进行多次更新不会相互干扰。为了使用OptimisticLocking，我们需要一个实体（Entity），其中包含一个带有@Version注释的属性。在使用它时，每个读取数据的事务都持有version属性的值。在事务想要进行更新">
 <meta property="og:locale" content="zh_CN">
@@ -44,7 +44,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://apple-1252736714.cos.ap-nanjing.myqcloud.com/picgo/20210115002026.jpeg">
 
-<link rel="canonical" href="https://happyjava.cn/articles/23">
+<link rel="canonical" href="http://blog.happyjava.cn/articles/23">
 
 
 <script id="page-configurations">
@@ -178,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/23.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/23.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -250,7 +250,7 @@
 
 <h2 id="新建一个UserEntity-java"><a href="#新建一个UserEntity-java" class="headerlink" title="新建一个UserEntity.java"></a>新建一个UserEntity.java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;user&quot;)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@OptimisticLocking</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Id</span></span><br><span class="line"> <span class="meta">@GeneratedValue(strategy = GenerationType.SEQUENCE)</span></span><br><span class="line"> <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Column(name = &quot;username&quot;, unique = true, nullable = true, length = 50)</span></span><br><span class="line"> <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Version</span></span><br><span class="line"> <span class="keyword">private</span> Integer version;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@PrePersist</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prePersist</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> version = <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>spring data jpa在上一篇文章已经做过一些讲解了<a href="https://happyjava.cn/articles/23.html">【快学springboot】7.使用Spring Boot Jpa</a>。感兴趣的朋友可以看看。这里定义了一个version字段，使用了Version注解标识。PrePersist这个注解表示在新增数据之前执行。</p>
+<p>spring data jpa在上一篇文章已经做过一些讲解了<a target="_blank" rel="noopener" href="https://happyjava.cn/articles/23.html">【快学springboot】7.使用Spring Boot Jpa</a>。感兴趣的朋友可以看看。这里定义了一个version字段，使用了Version注解标识。PrePersist这个注解表示在新增数据之前执行。</p>
 <h2 id="新建UserRepo接口"><a href="#新建UserRepo接口" class="headerlink" title="新建UserRepo接口"></a>新建UserRepo接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepo</span> <span class="keyword">extends</span> <span class="title">PagingAndSortingRepository</span>&lt;<span class="title">User</span>, <span class="title">Integer</span>&gt;, <span class="title">JpaSpecificationExecutor</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="新建一个UserTest类，继承SpringbootApplicationTests"><a href="#新建一个UserTest类，继承SpringbootApplicationTests" class="headerlink" title="新建一个UserTest类，继承SpringbootApplicationTests"></a>新建一个UserTest类，继承SpringbootApplicationTests</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class UserTest extends SpringbootApplicationTests &#123;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -377,7 +377,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

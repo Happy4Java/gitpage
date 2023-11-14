@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.happyjava.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="前言虽然现在都流行前后端分离部署，但有时候还是需要把前端文件跟后端文件一起打包发布，这就涉及到了springboot的静态资源访问的问题。不单只是静态资源打包，比如使用本地某个目录作为文件存储，也可通过WebMvcConfigurer接口来配置。 在与前端交互的过程中，也会碰到一个跨域的问题。我们也可通过WebMvcConfigurer接口来解决跨域的问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【快学springboot】6.WebMvcConfigurer配置静态资源和解决跨域">
-<meta property="og:url" content="https://happyjava.cn/articles/17.html">
+<meta property="og:url" content="http://blog.happyjava.cn/articles/17.html">
 <meta property="og:site_name" content="Happyjava&#39;s blog site">
 <meta property="og:description" content="前言虽然现在都流行前后端分离部署，但有时候还是需要把前端文件跟后端文件一起打包发布，这就涉及到了springboot的静态资源访问的问题。不单只是静态资源打包，比如使用本地某个目录作为文件存储，也可通过WebMvcConfigurer接口来配置。 在与前端交互的过程中，也会碰到一个跨域的问题。我们也可通过WebMvcConfigurer接口来解决跨域的问题。">
 <meta property="og:locale" content="zh_CN">
@@ -42,7 +42,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/7768df1cf36e4ae79c6979d3ed4c38d5/7768df1cf36e4ae79c6979d3ed4c38d5.github.io//myfiles/20210115001109.jpeg">
 
-<link rel="canonical" href="https://happyjava.cn/articles/17">
+<link rel="canonical" href="http://blog.happyjava.cn/articles/17">
 
 
 <script id="page-configurations">
@@ -176,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happyjava.cn/articles/17.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.happyjava.cn/articles/17.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -379,7 +379,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
